@@ -29,8 +29,6 @@ convert  9_1.jpg  -colorspace Gray   grey/9_1.jpg
 
 
 # OCTAVE processing
-
-## Random trials
 img = imread('grey/9_1.jpg')
 imshow(img)
 size(img)
