@@ -1,0 +1,12 @@
+%This script will create traning(20), CV(5) and test dataset(5)
+
+% read grey folder for all folders
+% go to each folder and sample 20 files from N folder, put pixels in X and N in y.
+% next 5 in Xcv, ycv
+% next 5 in Xt and yt
+
+
+
+
+
+
