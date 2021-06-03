@@ -17,23 +17,26 @@ This is a project to implement Neural Network approach to recognise hand written
 > http://stackoverflow.com/questions/9636350/using-imagemagick-how-can-i-slice-up-an-image-into-several-separate-images
 > This cuts an image into 6 sections, 2 per row, with 40 pixels of horizontal padding 
 > and 20 pixels of vertical padding excluded from each section:
-> convert 17.png -crop 2x3-40-20@ +repage +adjoin tile-%d.jpg
-
+```bash
+convert 17.png -crop 2x3-40-20@ +repage +adjoin tile-%d.jpg
+```
 > cuts an image into windows (5 sections, 1 per row), with 20 pixels of horizontal padding, 1 pixels of vertical padding excluded from each section
-convert 17.png -crop 1x5-20-1@ +repage +adjoin tile-%d.jpg
+`convert 17.png -crop 1x5-20-1@ +repage +adjoin tile-%d.jpg`  
 About 10 training sets per digit created using several random windows settings.
 
 
 ## Converting images into grey scale
+```bash
 convert  9_1.jpg  -colorspace Gray   grey/9_1.jpg
+```
 
-
-## Per script to crop images 
+## Perl script to crop images 
+```perl
 perl -e '%gr=(1=>"center", 2=>"south",3=>"west",4=>"north",5=>"east",);@f=<*.jpg>; foreach $i(0..$#f){print "$f[$i] Gravity:(1:5)";$k=<STDIN>;chomp($k); $k=$gr{$k};system("convert  $f[$i]  -gravity $k  -crop 100x100+0+0 +repage -resize 20x -colorspace Gray   0_$i\.jpg")  }'
-
+```
 
 # OCTAVE processing
-
+```octave
 ## Random trials
 img = imread('grey/9_1.jpg')
 imshow(img)
@@ -43,3 +46,4 @@ ans =
    251   155
 
 save -binary odia_9 img
+```
